@@ -17,7 +17,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("joshuakeller.plugins")
 
-vim.cmd("colorscheme vscode")
+-- vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme onedark")
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	command = "FormatWriteLock",
