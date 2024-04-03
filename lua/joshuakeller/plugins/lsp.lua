@@ -53,6 +53,19 @@ return {
 			}),
 		})
 
+		local lspconfig = require("lspconfig")
+
+		lspconfig.html.setup({
+			filetypes = { "html", "templ" },
+		})
+		lspconfig.htmx.setup({
+			filetypes = { "html", "templ" },
+		})
+		lspconfig.tailwindcss.setup({
+			filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+			init_options = { userLanguages = { templ = "html" } },
+		})
+
 		--lsp.format_on_save({
 		--    format_opts = {
 		--      async = false,

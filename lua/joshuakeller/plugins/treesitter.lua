@@ -28,10 +28,17 @@ return {
 				"tsx",
 				"yaml",
 				"go",
+				"templ",
 			},
 			sync_install = false,
 			highlight = { enable = true },
 			indent = { enable = true },
+		})
+
+		vim.filetype.add({
+			extension = {
+				templ = "templ",
+			},
 		})
 	end,
 }
