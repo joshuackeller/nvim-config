@@ -35,20 +35,41 @@
 -- }
 
 return {
-	{
-		"maxmx03/dracula.nvim",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
-			local dracula = require("dracula")
+    {
+        'maxmx03/dracula.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            ---@type dracula
+            local dracula = require "dracula"
 
-			dracula.setup()
-			vim.cmd.colorscheme("dracula")
-		end,
-	},
-}
-
--- return {
+            dracula.setup({
+                plugins = {
+                    ["nvim-treesitter"] = true,
+                    ["nvim-lspconfig"] = true,
+                    ["nvim-cmp"] = true,
+                    ["indent-blankline.nvim"] = true,
+                    ["neo-tree.nvim"] = true,
+                    ["nvim-tree.lua"] = true,
+                    ["lazy.nvim"] = true,
+                    ["telescope.nvim"] = true,
+                }
+            })
+            vim.cmd.colorscheme 'dracula'
+        end
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        opts = {
+            options = {
+                theme = vim.g.colors_name,
+                refresh = {
+                    statusline = 1000,
+                },
+            },
+        },
+    }
+} -- return {
 -- 	"loctvl842/monokai-pro.nvim",
 -- 	config = function()
 -- 		require("monokai-pro").setup()
